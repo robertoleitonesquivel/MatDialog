@@ -7,12 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TerminalsComponent } from './componentes/terminals/terminals.component';
 import { AddTerminalComponent } from './componentes/terminals/modalTerminal/add-terminal/add-terminal.component';
 import { MaterialModule } from './shared/material.module';
+import { ClientComponent } from './componentes/client/client.component';
+import { TablaComponent } from './componentes/tabla/tabla.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TerminalsComponent,
-    AddTerminalComponent
+    AddTerminalComponent,
+    ClientComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,

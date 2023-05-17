@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTerminalComponent } from './modalTerminal/add-terminal/add-terminal.component';
 import { TerminalsService } from 'src/app/services/terminals.service';
 import { filter, map, of, pipe, switchMap, take, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-terminals',
@@ -13,7 +14,8 @@ export class TerminalsComponent {
 
   constructor(
     public dialog: MatDialog,
-    private terminalsSVC: TerminalsService
+    private terminalsSVC: TerminalsService,
+    private router: Router
   ) {
 
   }
@@ -77,6 +79,10 @@ export class TerminalsComponent {
     //   console.log(result);
     // });
 
+  }
+
+  redirigir(): void {
+    this.router.navigate(['client'], { queryParams: { prueba: 'prueba' } });
   }
 
 }
