@@ -9,6 +9,10 @@ import { AddTerminalComponent } from './componentes/terminals/modalTerminal/add-
 import { MaterialModule } from './shared/material.module';
 import { ClientComponent } from './componentes/client/client.component';
 import { TablaComponent } from './componentes/tabla/tabla.component';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AutocompleteComponent } from './componentes/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import { TablaComponent } from './componentes/tabla/tabla.component';
     TerminalsComponent,
     AddTerminalComponent,
     ClientComponent,
-    TablaComponent
+    TablaComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

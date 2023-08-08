@@ -1,7 +1,10 @@
 .table-responsive{
   overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .mat-mdc-table{
-    width: 100%;
+    width: 98%;
     min-width: 1200px;
   }
 }

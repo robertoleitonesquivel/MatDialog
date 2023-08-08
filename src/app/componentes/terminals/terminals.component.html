@@ -1,8 +1,25 @@
 <div class="container">
-  <button mat-raised-button color="primary" (click)="openDialog()">Abrir</button>
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    Abrir
+  </button>
 </div>
 
 <div class="container">
-  <button mat-raised-button color="primary" (click)="redirigir()">Redirigir</button>
+  <button mat-raised-button color="primary">Redirigir</button>
 </div>
 
+<div class="content">
+  <span *ngFor="let item of data; index as i" class="hola"
+  [ngClass]="i === currentIndex ? 'active' : ''"
+  (click)="redirigir(i)">
+  {{ item.name }}{{ i }}{{ currentIndex }}
+</span>
+</div>
+<br><br><br>
+<button (click)="Prueba()">Probar</button>
+<input [formControl]="frm"/>
+<input hidden #fileInputSaleOffer type="file" (change)="OnAttachPrintFormat($event)" />
+<button matTooltip="Adjuntar" mat-flat-button color="primary"
+  class="button-list ctrl-button upload-button" (click)="fileInputSaleOffer.click()">
+  carga
+</button>

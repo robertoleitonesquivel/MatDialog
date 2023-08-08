@@ -1,0 +1,13 @@
+<input matInput (keyup)="keyupMethod()"
+       [formControl]="frm"
+       [matAutocomplete]="auto">
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="select($event.option.value)">
+  <mat-option *ngFor="let option of items$ | async" [value]="option">
+    {{option}}
+  </mat-option>
+</mat-autocomplete>
+
+<br><br><br>
+
+
+<button (click)="completeMethod()">Parar</button>

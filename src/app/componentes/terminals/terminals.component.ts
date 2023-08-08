@@ -4,6 +4,7 @@ import { AddTerminalComponent } from './modalTerminal/add-terminal/add-terminal.
 import { TerminalsService } from 'src/app/services/terminals.service';
 import { filter, map, of, pipe, switchMap, take, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-terminals',
@@ -11,6 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./terminals.component.scss']
 })
 export class TerminalsComponent {
+
+  data: prueba[] = [{ name: 'Uno' }, { name: 'dos' }];
+  active: boolean = true;
+  currentIndex: number = 0;
+  frm: FormControl = new FormControl();
+  archivo!:File;
 
   constructor(
     public dialog: MatDialog,
@@ -81,9 +88,26 @@ export class TerminalsComponent {
 
   }
 
-  redirigir(): void {
-    this.router.navigate(['client'], { queryParams: { prueba: 'prueba' } });
+  redirigir(index: number): void {
+    debugger
+    this.currentIndex = index;
   }
 
+  Prueba() {
+    this.terminalsSVC.get(this.archivo).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  OnAttachPrintFormat(event:any){
+    this.archivo = event.target.files[0];
+    this.frm.setValue(event.target.files[0].name);
+  }
+
+
+}
+
+export interface prueba {
+  name: string;
 }
 
