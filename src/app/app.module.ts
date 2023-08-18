@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteComponent } from './componentes/autocomplete/autocomplete.component';
+import { ReintentarComponent } from './componentes/reintentar/reintentar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AutocompleteComponent } from './componentes/autocomplete/autocomplete.c
     AddTerminalComponent,
     ClientComponent,
     TablaComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    ReintentarComponent
   ],
   imports: [
     BrowserModule,

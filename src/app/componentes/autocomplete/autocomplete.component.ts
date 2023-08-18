@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, Subject, filter, map, takeUntil, tap } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Observable, Subject, debounce, debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'app-autocomplete',
@@ -15,19 +16,25 @@ export class AutocompleteComponent implements OnInit {
   subject$ = new Subject<string>();
   desuscribir$ = new Subject<string>();
 
+  constructor(
+    private matDialog: MatDialogRef<AutocompleteComponent>
+  ){}
+
   ngOnInit(): void {
 
-    this.items$ = this.subject$.pipe(
-      tap(res => console.log(res, 'subject')),
-      map(res => this.items.filter(x => x.includes(res)))
-    )
+    // console.log(this.items.filter(x => x.includes('')));
+
+    // this.items$ = this.subject$.pipe(
+    //   debounceTime(15),
+    //   distinctUntilChanged(),
+    //   map(res => this.items.filter(x => x.includes(res)))
+    // )
 
     // this.frm.valueChanges.pipe(
     //   filter(res => {
     //     if (res) return true;
     //     else return false;
     //   }),
-    //   tap(res => console.log(res, 'form')),
     //   tap(res => this.subject$.next(res ?? '')),
     //   takeUntil(this.desuscribir$)
     // ).subscribe({});
@@ -51,6 +58,15 @@ export class AutocompleteComponent implements OnInit {
 
   public keyupMethod(): void {
     this.subject$.next(this.frm.value ?? '');
+  }
+
+
+  public Aceptar(): void {
+    this.matDialog.close(true);
+  }
+
+  public Cerrar(): void {
+    this.matDialog.close(false);
   }
 
 }

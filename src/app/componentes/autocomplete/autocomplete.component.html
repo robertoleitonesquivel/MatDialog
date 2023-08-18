@@ -1,8 +1,8 @@
-<input matInput (keyup)="keyupMethod()"
+<!-- <input matInput (keyup)="keyupMethod()"
        [formControl]="frm"
        [matAutocomplete]="auto">
 <mat-autocomplete #auto="matAutocomplete" (optionSelected)="select($event.option.value)">
-  <mat-option *ngFor="let option of items$ | async" [value]="option">
+  <mat-option *ngFor="let option of items$ | async" [value]="option" >
     {{option}}
   </mat-option>
 </mat-autocomplete>
@@ -10,4 +10,10 @@
 <br><br><br>
 
 
-<button (click)="completeMethod()">Parar</button>
+<button (click)="completeMethod()">Parar</button> -->
+
+<!-- (onSelectionChange)="select(option)" -->
+<h1>Autocomplete</h1>
+
+<button (click)="Aceptar()">Aceptar</button>
+<button (click)="Cerrar()">Cerrar</button>
